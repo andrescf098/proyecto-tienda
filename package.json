@@ -1,0 +1,24 @@
+{
+  "name": "proyecto-tienda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrescf098/proyecto-tienda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrescf098/proyecto-tienda/issues"
+  },
+  "homepage": "https://github.com/andrescf098/proyecto-tienda#readme",
+  "dependencies": {
+    "expres": "^0.0.5",
+    "express": "^4.18.2"
+  }
+}
