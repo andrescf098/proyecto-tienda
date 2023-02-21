@@ -5,7 +5,7 @@ const UserSchema = {
     id: {
         allowNull: false,
         autoIncrement: true,
-        primatyKey: true,
+        primaryKey: true,
         type: DataTypes.INTEGER
     },
     name: {
@@ -25,9 +25,15 @@ const UserSchema = {
         allowNull: false,
         type: DataTypes.STRING
     },
+    recoveryToken: {
+        field: 'recovery_token',
+        allowNull: true,
+        type: DataTypes.STRING
+    },
     role: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        defaultValue: 'normal'
     },
     createAt: {
         field: 'create_at',

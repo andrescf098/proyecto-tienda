@@ -22,7 +22,7 @@ class ProductService {
     }
     async update(id, data) {
         const model = await this.findOne(id);
-        const response = await model.Product.update(data);
+        const response = await model.update(data);
         return response;
     }
     async delete(id) {

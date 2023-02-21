@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const idProduct = Joi.number().integer();
+const id = Joi.number().integer();
 const nameProduct = Joi.string().min(4).max(16);
 const priceProduct = Joi.number().integer();
 const stock = Joi.number().integer();
@@ -11,7 +11,7 @@ const discount = Joi.number().integer().max(100);
 const categoryId = Joi.number().integer();
 
 const getProductSchema = Joi.object({
-    idProduct: idProduct.required()
+    id: id.required()
 });
 
 const createProductSchema = Joi.object({

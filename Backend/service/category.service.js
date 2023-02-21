@@ -1,5 +1,5 @@
 const { models } = require('../libs/sequelize');
-const boom = require('@hapi/boom')
+const boom = require('@hapi/boom');
 
 class CategoryService {
 
@@ -24,7 +24,7 @@ class CategoryService {
     }
     async update(id, data) {
         const model = await this.findOne(id);
-        const response = await model.Category.update(data);
+        const response = await model.update(data);
         return response;
     }
     async delete(id) {
