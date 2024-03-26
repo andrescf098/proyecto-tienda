@@ -1,17 +1,17 @@
-const express = require("express");
-const passport = require("passport");
-const validatorHandler = require("./../middlewares/validatior.handler");
+const express = require('express');
+const passport = require('passport');
+const validatorHandler = require('./../middlewares/validatior.handler');
 const {
   getUserSchema,
   createUserSchema,
   updateUserSchema,
-} = require("./../schemas/user.schema");
-const UserService = require("../service/user.service");
+} = require('./../schemas/user.schema');
+const UserService = require('../service/user.service');
 
 const router = express.Router();
 const service = new UserService();
 
-router.get("/", async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     res.json(await service.find());
   } catch (error) {
@@ -20,8 +20,8 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get(
-  "/:id",
-  validatorHandler(getUserSchema, "params"),
+  '/:id',
+  validatorHandler(getUserSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -33,9 +33,8 @@ router.get(
 );
 
 router.post(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  validatorHandler(createUserSchema, "body"),
+  '/',
+  validatorHandler(createUserSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
@@ -47,10 +46,10 @@ router.post(
 );
 
 router.patch(
-  "/:id",
-  passport.authenticate("jwt", { session: false }),
-  validatorHandler(getUserSchema, "params"),
-  validatorHandler(updateUserSchema, "body"),
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  validatorHandler(getUserSchema, 'params'),
+  validatorHandler(updateUserSchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -63,9 +62,9 @@ router.patch(
 );
 
 router.delete(
-  "/:id",
-  passport.authenticate("jwt", { session: false }),
-  validatorHandler(getUserSchema, "params"),
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  validatorHandler(getUserSchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;

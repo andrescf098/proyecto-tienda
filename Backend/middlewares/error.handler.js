@@ -1,6 +1,6 @@
-const { ValidationError } = require("sequelize");
+const { ValidationError } = require('sequelize');
 
-function logErrors (err, req, res, next) {
+function logErrors(err, req, res, next) {
   next(err);
 }
 
@@ -9,6 +9,11 @@ function errorHandler(err, req, res, next) {
     message: err.message,
     stack: err.stack,
   });
+}
+
+function errorCors(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Error: ' + err.message);
 }
 
 function boomErrorHandler(err, req, res, next) {
@@ -25,11 +30,16 @@ function ormErrorHandler(err, req, res, next) {
     res.status(409).json({
       statusCode: 409,
       message: err.name,
-      errors: err.errors
+      errors: err.errors,
     });
   }
   next(err);
 }
 
-
-module.exports = { logErrors, errorHandler, boomErrorHandler, ormErrorHandler }
+module.exports = {
+  logErrors,
+  errorHandler,
+  boomErrorHandler,
+  ormErrorHandler,
+  errorCors,
+};

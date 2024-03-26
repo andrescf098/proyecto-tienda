@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:15.1
+    image: postgres
     environment:
       - POSTGRES_DB=pTienda
       - POSTGRES_USER=admin
